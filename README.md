@@ -2,6 +2,13 @@
 
 A bash script that will translate .txt or .md to any language, **while keeping the original formatting**.
 
+![image 1](screenshot1)
+
+![image 2](screenshot2)
+
+![image 3](screenshot3)
+
+
  It uses the **Translate Shell** command-line translator (https://www.soimort.org/translate-shell/).
  
 ## INSTRUCTIONS

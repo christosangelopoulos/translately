@@ -62,7 +62,7 @@ while [ $LINE -le $TOTALLINES ]
 do
  CURRENTLINE=$(head -$LINE ~/.translately/sentenceoutcome.txt|tail +$LINE)
  CURRENTLINETRANSLATED=$(trans -brief :"$TRANSLATE_LANGUAGE" "$CURRENTLINE")
- echo "$CURRENTLINETRANSLATED"|tr -d >>"$DIRECTORY""translation of""$NAME"
+ echo "$CURRENTLINETRANSLATED"|tr -d >>"$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
  sleep 8
  LINE100=$(( $LINE * 100 ))
  PERCENTAGE=$(( $LINE100 / $TOTALLINES))
@@ -96,7 +96,7 @@ do
  then
   zenity --info --height=40 --width=400 --title="Translately!" --icon-name=fonts --text="Translating of ""$NAME"" is stopped, Google quota is exceeded!" --window-icon=/usr/share/icons/gnome/16x16/apps/fonts.png --timeout=3
   rm -r ~/.translately;
-  rm "$DIRECTORY""translation of""$NAME"
+  rm "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
   exit
  fi
  ((LINE++))
@@ -117,9 +117,9 @@ done
      ;; 
     esac
 #get rid of new lines created at sentence delimitation/translation, substitute with space   
-sed -z -i 's/\n/ /g' "$DIRECTORY""translation of""$NAME"  
+sed -z -i 's/\n/ /g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"  
 #substitute old delimiters () with new lines 
-sed -i 's/()/\n/g' "$DIRECTORY""translation of""$NAME"
+sed -i 's/()/\n/g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
 rm -r ~/.translately
 if [ $ERROR = 0 ]
 then
