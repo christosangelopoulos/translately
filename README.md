@@ -2,6 +2,8 @@
 
 A bash script that will translate .txt or .md to any language, **while keeping the original formatting**.
 
+![image 0](screenshot0.png)
+
 ![image 1](screenshot1.png)
 
 ![image 2](screenshot2.png)
