@@ -10,6 +10,9 @@ A bash script that will translate .txt or .md to any language, **while keeping t
 
 ![image 3](screenshot3.png)
 
+![image 3](screenshot4.png)
+
+![image 3](screenshot5.png)
 
  It uses the **Translate Shell** command-line translator (https://www.soimort.org/translate-shell/).
  
