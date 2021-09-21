@@ -16,7 +16,7 @@ case $? in
 esac
 
 #zenity language selection
-TRANSLATE_LANGUAGE=$(zenity --list  --radiolist  --title="Translately"  --text="Translate to which language?" --height=400 --width=200 --window-icon=/usr/share/icons/gnome/16x16/apps/fonts.png --column=Select  --column="Language"  --column="Abbrev"  TRUE Ελληνικά el  False English en  False Francais fr  False Español es  False Deutch de False Italiano it False Українська uk False Dansk da --print-column=3 )
+TRANSLATE_LANGUAGE=$(zenity --list  --radiolist  --title="Translately"  --text="Translate to which language?" --height=400 --width=200 --window-icon=/usr/share/icons/gnome/16x16/apps/fonts.png --column=Select  --column="Language"  --column="Abbrev"  TRUE Ελληνικά el  False English en  False Francais fr  False Español es  False Deutch de False Italiano it False Українська uk False Dansk da False Russian ru --print-column=3 )
 case $? in 
   0)  
   ;; 
@@ -120,6 +120,10 @@ done
 sed -z -i 's/\n/ /g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"  
 #substitute old delimiters () with new lines 
 sed -i 's/()/\n/g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
+#substitute old delimiters () badly translated as ( ) with new lines
+sed -i 's/( )/\n/g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
+#get rid of space at the beggining of lines
+sed -i 's/^ //g' "$DIRECTORY""$TRANSLATE_LANGUAGE"" translation of ""$NAME"
 rm -r ~/.translately
 if [ $ERROR = 0 ]
 then
